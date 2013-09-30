@@ -6,4 +6,4 @@ class __Model.Task extends Monocle.Model
 
   @completed: -> @select (task) -> !!task.done
 
-  @important: -> @select (task) -> task.important is true
+  @important: -> @select (task) -> task.important is true and !task.done 

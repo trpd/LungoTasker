@@ -2,14 +2,14 @@ class __View.Task extends Monocle.View
   
 
   template  : """
-    <li data-icon="circle-blank">
-      <span class="icon circle-blank"></span>
+    <li data-icon="{{#done}}ok-sign{{/done}}{{^done}}circle-blank{{/done}}">
+      <span class="{{#done}}icon ok-sign{{/done}}{{^done}}icon circle-blank{{/done}}"></span>
       <div class="on-right">{{list}}</div>
       <strong>{{name}}</strong>
       <small>{{description}} - {{when}}</small>
     </li>
   """
-  
+
   constructor: ->
     super
     __Model.Task.bind "update", @bindTaskUpdated
@@ -28,6 +28,7 @@ class __View.Task extends Monocle.View
       @refresh()
 
   onDone: (event) ->
+    
     Lungo.Notification.confirm
       icon: "user"
       title: "Realizar Tarea"
@@ -39,8 +40,6 @@ class __View.Task extends Monocle.View
           @model.done =  !@model.done
           @model.save()
           @refresh()
-          ######Lungo.dom("#normal li").hold (event) ->
-            ######Lungo.dom(this).toggleClass("icon ok-sign").toggleClass ""
 
       cancel:
         icon: "close"
@@ -49,7 +48,6 @@ class __View.Task extends Monocle.View
           @
     
   onDelete: (event) ->
-    
     Lungo.Notification.confirm
       icon: "user"
       title: "Eliminar tarea"

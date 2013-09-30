@@ -20,16 +20,18 @@ class TaskCtrl extends Monocle.Controller
   onSave: (event) ->
     if @current
       # Save
+
       @current.name        = @name.val()
       @current.description = @description.val()
       @current.list        = $("#lista").val()
       @current.when        = $("#fecha").val()
-      
+      @current.important   = @important[0].checked
+      @current.save()
+      ###
       if @current.important is @important[0].checked
         @current.save()
       else 
-        @current.important = @important[0].checked
-        
+      ###
     else
       # New task
 
@@ -37,7 +39,6 @@ class TaskCtrl extends Monocle.Controller
       __Model.Task.create
         name        : @name.val()
         description : @description.val()
-        ######list        : @list.val()
         list        : $("#lista").val()
         when        : $("#fecha").val()
         important   : @important[0].checked

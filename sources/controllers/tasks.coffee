@@ -6,7 +6,7 @@ class __Controller.TasksCtrl extends Monocle.Controller
     elements:
       "#pending"    :   "pending"
       "#important"  :   "important"
-      "input"                 :   "name"
+      "input"       :   "name"
 
     constructor: ->
       super
@@ -41,10 +41,10 @@ $$ ->
   Lungo.init({})
   Tasks = new __Controller.TasksCtrl "section#tasks"
   __Model.Task.create name: "Tomar una cerveza", description: "Con la peña", list: "home", when: "2013/01/01", important: true, done: false
-  __Model.Task.create name: "Tomar una cerveza", description: "Con la peña", list: "office", when: "2013/01/02", important: true, done: false
+  __Model.Task.create name: "Tomar una cerveza", description: "Con la peña", list: "office", when: "2013/01/02", important: true, done: true
   __Model.Task.create name: "Tomar una cerveza", description: "Con la peña", list: "home", when: "2013/01/03", important: true, done: false
   __Model.Task.create name: "Tomar una cerveza", description: "Con la peña", list: "other", when: "01/12/2013", important: false, done: false
-  __Model.Task.create name: "Tomar una cerveza", description: "Con la peña", list: "office", when: "02/12/2013", important: false, done: false
+  __Model.Task.create name: "Tomar una cerveza", description: "Con la peña", list: "office", when: "02/12/2013", important: false, done: true
   __Model.Task.create name: "Tomar una cerveza", description: "Con la peña", list: "other", when: "03/12/2013", important: false, done: false
   __Model.Task.create name: "Tomar una cerveza", description: "Con la peña", list: "home", when: "04/12/2013", important: false, done: false
 
